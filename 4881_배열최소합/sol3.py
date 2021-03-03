@@ -4,11 +4,13 @@ sys.stdin = open("input.txt")
 
 # 백트래킹을 이용해 dfs 시간 단축
 def dfs(n, k, s):
-    # 순열이 완성되면 합을 sums에 추가
+    global min_sum
+    # 순열이 완성되면 s의 값 확인 후 min_sum 갱신
     if n == k:
-        sums.append(s)
-    # 현재 합이 합 중 최소보다 작다면 백트래킹
-    elif min(sums) <= s:
+        if min_sum > s:
+            min_sum = s
+    # 현재 합이 현재 최소합보다 작다면 백트래킹
+    elif min_sum <= s:
         return
     # 각 행의 원소들 중 사용되지 않은 열에 대해 탐색
     else:
@@ -27,12 +29,12 @@ for tc in range(1, T+1):
     A = []
     for i in range(N):
         A.append(list(map(int, input().split())))
-    # N은 최대 10이므로 sum은 90을 넘을 수 없음
-    sums = [90]
+    # 배열합의 최솟값 min_sum
+    min_sum = 90
     # 사용한 열을 기록할 배열 u
     u = [0]*N
     # dfs
     dfs(0, N, 0)
 
-    print("#{} {}".format(tc, min(sums)))
+    print("#{} {}".format(tc, min_sum))
 
