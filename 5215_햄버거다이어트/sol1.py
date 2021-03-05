@@ -1,4 +1,5 @@
 # sol2.py 에서 개선
+# 0-1 Knapsack 알고리즘과 관련있음.
 import sys
 
 sys.stdin = open("input.txt")
