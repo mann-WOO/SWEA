@@ -2,8 +2,6 @@ import sys
 sys.stdin = open("input.txt")
 
 
-# 단순 반복
-# stack or queue 쓰는 방법?
 T = int(input())
 for tc in range(1, T+1):
     # 깃발의 높이 N, 너비 M
