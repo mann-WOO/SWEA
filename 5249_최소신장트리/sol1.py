@@ -38,7 +38,7 @@ for tc in range(1, T+1):
                 costs[i] = adj_matrix[current][i]
         # 다음 연결할 노드 결정하기
         for i in range(V+1):
-            if costs[i] < 11 and not mst[i]:
+            if not mst[i]:
                 next = i
                 break
         for i in range(next, V+1):
